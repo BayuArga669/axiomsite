@@ -1,0 +1,202 @@
+---
+// src/components/Header.astro
+---
+
+<header class="header" id="navbar">
+    <div class="container header-content">
+        <a href="#" class="logo-container">
+            <img src="/logo/logo2.png" alt="AxiomSite Logo" class="logo-img" />
+            <span class="logo-text">AxiomSite</span>
+        </a>
+        
+        <nav class="nav-links">
+            <a href="#services" class="nav-link">Layanan</a>
+            <a href="#pricing" class="nav-link">Harga</a>
+            <a href="#contact" class="nav-link">Kontak</a>
+            <a href="#contact" class="btn btn-primary nav-cta">Mulai Proyek</a>
+        </nav>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <a href="#services" class="mobile-link">Layanan</a>
+        <a href="#pricing" class="mobile-link">Harga</a>
+        <a href="#contact" class="mobile-link">Kontak</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Mulai Proyek</a>
+    </div>
+</header>
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1.5rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+        background: rgba(10, 10, 15, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--surface-border);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .logo-container:hover {
+        transform: translateY(-2px);
+    }
+
+    .logo-img {
+        height: 38px; 
+        width: auto;
+    }
+
+    .logo-text {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+        display: none;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .nav-link {
+        color: var(--text-secondary);
+        font-weight: 500;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: var(--text-primary);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .nav-cta {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-secondary);
+        padding: 2rem;
+        flex-direction: column;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--surface-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .mobile-nav.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .mobile-link {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+    
+    .mobile-link:hover {
+        color: var(--accent-color);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .nav-links {
+            display: flex;
+        }
+        .mobile-menu-btn {
+            display: none;
+        }
+        .mobile-nav {
+            display: none !important;
+        }
+    }
+</style>
+
+<script>
+    const header = document.getElementById('navbar');
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header?.classList.add('scrolled');
+        } else {
+            header?.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    mobileBtn?.addEventListener('click', () => {
+        mobileNav?.classList.toggle('active');
+    });
+</script>

@@ -1,11 +1,568 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Icons SVG strings
+const codeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
+const paintIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>`;
+const speedIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+const searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`;
+
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="AxiomSite - Layanan Jasa Pembuatan Website Profesional">
+	<Header />
+    
+    <main>
+        <!-- Background Elements -->
+        <div class="bg-glow" style="top: -10%; left: -10%;"></div>
+        <div class="bg-glow" style="top: 40%; right: -20%; background: #a855f7;"></div>
+        
+        <!-- Hero Section -->
+        <section class="hero section-padding" id="home">
+            <div class="container hero-content">
+                <div class="hero-text reveal">
+                    <div class="badge">AxiomSite Studio</div>
+                    <h1>Bangun Presensi Digital Anda dengan <span class="text-gradient">Website Premium</span></h1>
+                    <p>Kami merancang dan mengembangkan website modern, super cepat, dan dioptimalkan untuk SEO untuk mendukung pertumbuhan bisnis Anda di era digital.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Konsultasi Gratis</a>
+                        <a href="#services" class="btn btn-secondary">Lihat Layanan</a>
+                    </div>
+                </div>
+                <!-- Abstract Hero Graphic Box -->
+                <div class="hero-image reveal" style="transition-delay: 200ms;">
+                    <div class="hero-graphic glass-panel">
+                        <div class="graphic-circle"></div>
+                        <div class="graphic-element top-left"></div>
+                        <div class="graphic-element bottom-right"></div>
+                        <div class="code-lines">
+                            <div class="line w-80"></div>
+                            <div class="line w-100"></div>
+                            <div class="line w-60"></div>
+                            <br>
+                            <div class="line w-90"></div>
+                            <div class="line w-70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Layanan <span class="text-gradient">Unggulan</span> Kami</h2>
+                    <p>Solusi digital komprehensif yang dirancang khusus untuk memenuhi segala kebutuhan bisnis dan brand Anda.</p>
+                </div>
+
+                <div class="service-grid">
+                    <ServiceCard 
+                        title="Desain Kustom" 
+                        description="Bukan sekadar template. Kami membuat desain visual eksklusif yang merefleksikan identitas brand Anda."
+                        icon={paintIcon}
+                        delay={0}
+                    />
+                    <ServiceCard 
+                        title="Pengembangan Handal" 
+                        description="Performa luar biasa dengan teknologi web modern terbaru memastikan website Anda cepat dan responsif."
+                        icon={codeIcon}
+                        delay={100}
+                    />
+                    <ServiceCard 
+                        title="Optimasi Kecepatan" 
+                        description="Waktu muat sekejap mata. Kami mengoptimalkan setiap aset agar performa selalu berada di puncaknya."
+                        icon={speedIcon}
+                        delay={200}
+                    />
+                    <ServiceCard 
+                        title="SEO Friendly" 
+                        description="Struktur website yang dibangun mengikuti pedoman dari mesin pencari agar mudah ditemukan pelanggan."
+                        icon={searchIcon}
+                        delay={300}
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing section-padding" id="pricing">
+            <div class="bg-glow" style="top: 70%; left: 30%; background: #3b82f6;"></div>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Pilihan <span class="text-gradient">Paket Transparan</span></h2>
+                    <p>Pilih paket yang paling sesuai dengan kebutuhan dan skala bisnis Anda tanpa biaya tersembunyi.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Starter Plan -->
+                    <div class="pricing-card glass-panel reveal">
+                        <div class="pricing-header">
+                            <h3>Starter</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">100<span class="suffix">k</span></span>
+                            </div>
+                            <p class="plan-desc">Cocok untuk bisnis rintisan atau individu.</p>
+                        </div>
+                        <ul class="features">
+                            <li><span class="check">✓</span> Landing Page (Satu Halaman)</li>
+                            <li><span class="check">✓</span> Desain Premium & Responsif</li>
+                            <li class="unavailable"><span class="cross">✕</span> Integrasi WhatsApp</li>
+                            <li class="unavailable"><span class="cross">✕</span> Cloud Hosting 1 Tahun</li>
+                            <li class="unavailable"><span class="cross">✕</span> Domain .com/id 1 Tahun</li>
+                            <li class="unavailable"><span class="cross">✕</span> CMS / Panel Admin</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary plan-btn">Pilih Starter</a>
+                    </div>
+                    
+                    <!-- Pro Plan -->
+                    <div class="pricing-card glass-panel popular reveal" style="transition-delay: 150ms;">
+                        <div class="popular-badge">Paling Populer</div>
+                        <div class="pricing-header">
+                            <h3>Professional</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">1.5<span class="suffix">jt</span></span>
+                            </div>
+                            <p class="plan-desc">Ideal untuk perusahaan berskala menengah.</p>
+                        </div>
+                        <ul class="features">
+                            <li><span class="check">✓</span> Hingga 5 Halaman Unik</li>
+                            <li><span class="check">✓</span> Desain Kustom UI/UX</li>
+                            <li><span class="check">✓</span> Form Kontak Terintegrasi Email</li>
+                            <li><span class="check">✓</span> Cloud Hosting 1 Tahun</li>
+                            <li><span class="check">✓</span> Domain Bebas 1 Tahun</li>
+                            <li><span class="check">✓</span> Sistem Manajemen Konten (CMS)</li>
+                            <li><span class="check">✓</span> Optimasi SEO Lanjut</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary plan-btn">Pilih Professional</a>
+                    </div>
+
+                    <!-- E-commerce Plan -->
+                    <div class="pricing-card glass-panel reveal" style="transition-delay: 300ms;">
+                        <div class="pricing-header">
+                            <h3>E-Commerce</h3>
+                            <div class="price">
+                                <span class="currency">Rp</span>
+                                <span class="amount">3<span class="suffix">jt</span></span>
+                            </div>
+                            <p class="plan-desc">Untuk toko online lengkap dengan sistem payment.</p>
+                        </div>
+                        <ul class="features">
+                            <li><span class="check">✓</span> Katalog Produk Tanpa Batas</li>
+                            <li><span class="check">✓</span> Integrasi Payment Gateway API</li>
+                            <li><span class="check">✓</span> Keranjang Belanja Interaktif</li>
+                            <li><span class="check">✓</span> Fitur Manajemen Order</li>
+                            <li><span class="check">✓</span> Desain Khusus Konversi Tinggi</li>
+                            <li><span class="check">✓</span> Support SSL Premium</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary plan-btn">Pilih E-Commerce</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Contact Section -->
+        <section class="contact section-padding" id="contact">
+            <div class="container">
+                <div class="contact-box glass-panel reveal">
+                    <div class="contact-info">
+                        <h2>Siap Membuat<br>Lompatan <span class="text-gradient">Besar?</span></h2>
+                        <p>Ceritakan ide Anda dan mari kita wujudkan menjadi produk digital yang luar biasa bersam AxiomSite Studio.</p>
+                        <div class="contact-details">
+                            <div class="detail-item">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <a href="mailto:axiomsite1@gmail.com">axiomsite1@gmail.com</a>
+                            </div>
+                            <div class="detail-item">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span>+62 812 3456 7890</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="https://formsubmit.co/axiomsite1@gmail.com" method="POST" class="contact-form">
+                        <!-- Integrasi FormSubmit API Konfigurasi -->
+                        <input type="hidden" name="_subject" value="Pesan Baru dari Website AxiomSite!">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="0812 3456 7890" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimasi Anggaran</label>
+                            <input type="text" id="budget" name="budget" placeholder="Misal: 100k / 1.5jt / 3jt" required />
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Pesan / Detail Proyek</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Ceritakan sedikit tentang proyek Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn full-width">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+	<Footer />
 </Layout>
+
+<style>
+    /* Hero Section */
+    .hero {
+        padding-top: 6rem;
+        padding-bottom: 5rem;
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        color: var(--accent-color);
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .hero-text h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-text p {
+        margin-bottom: 2.5rem;
+        font-size: 1.25rem;
+        max-width: 540px;
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* Abstract Graphic Box Elements */
+    .hero-graphic {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        border-radius: 2rem;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+        box-shadow: 20px 20px 60px rgba(0,0,0,0.5), -10px -10px 30px rgba(255,255,255,0.02);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+        50% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(-20px); }
+    }
+
+    .graphic-circle {
+        position: absolute;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        opacity: 0.2;
+        filter: blur(40px);
+    }
+
+    .graphic-element {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 1rem;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .top-left { top: 2rem; left: 2rem; transform: rotate(-15deg); }
+    .bottom-right { bottom: 2rem; right: 2rem; transform: rotate(20deg); width: 80px; height: 80px; }
+
+    .code-lines {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .line {
+        height: 8px;
+        border-radius: 4px;
+        background: var(--surface-border);
+    }
+    .w-100 { width: 100%; }
+    .w-90 { width: 90%; }
+    .w-80 { width: 80%; background: var(--accent-color); opacity: 0.8;}
+    .w-70 { width: 70%; }
+    .w-60 { width: 60%; background: #a855f7; opacity: 0.8;}
+
+
+    /* Section Header */
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 5rem;
+    }
+
+    .section-header h2 {
+        margin-bottom: 1rem;
+    }
+
+    /* Services Grid */
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .pricing-card {
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+    }
+
+    .pricing-card.popular {
+        background: rgba(40, 42, 60, 0.4);
+        transform: scale(1.05);
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 0 40px var(--accent-glow);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent-gradient);
+        color: white;
+        padding: 0.4rem 1.2rem;
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--surface-border);
+    }
+
+    .price {
+        margin: 1.5rem 0 0.5rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .currency {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .amount {
+        font-size: 3.5rem;
+        font-weight: 800;
+        font-family: var(--font-heading);
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .suffix {
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: inline-block;
+        margin-top: 1.5rem;
+        letter-spacing: 0;
+    }
+
+    .plan-desc {
+        font-size: 0.95rem;
+    }
+
+    .features {
+        margin-bottom: 3rem;
+        flex-grow: 1;
+    }
+
+    .features li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .unavailable {
+        color: rgba(255,255,255,0.3);
+    }
+
+    .check {
+        color: #10b981;
+        font-weight: bold;
+    }
+
+    .cross {
+        color: rgba(255,255,255,0.3);
+    }
+
+    .plan-btn {
+        width: 100%;
+    }
+
+    /* Contact Section */
+    .contact-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 3rem 2rem;
+    }
+
+    .contact-info h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 2.5rem;
+    }
+
+    .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--text-primary);
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+
+    .detail-item svg {
+        color: var(--accent-color);
+        background: rgba(99, 102, 241, 0.1);
+        padding: 0.5rem;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    .contact-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+
+    input, select, textarea {
+        background: rgba(0,0,0,0.2);
+        border: 1px solid var(--surface-border);
+        padding: 1rem 1.25rem;
+        border-radius: 0.5rem;
+        color: var(--text-primary);
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    select option {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        padding: 10px;
+    }
+
+    @media (min-width: 768px) {
+        .hero-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-box {
+            grid-template-columns: 1fr 1.2fr;
+            padding: 4rem;
+        }
+
+        .contact-form {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
+    @media (max-width: 1024px) {
+        .pricing-card.popular {
+            transform: scale(1);
+        }
+    }
+</style>
+
+

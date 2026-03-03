@@ -1,0 +1,89 @@
+---
+// src/components/ServiceCard.astro
+interface Props {
+	title: string;
+	description: string;
+	icon: string;
+	delay?: number;
+}
+
+const { title, description, icon, delay = 0 } = Astro.props;
+---
+
+<div class="service-card glass-panel reveal" style={`transition-delay: ${delay}ms`}>
+    <div class="card-icon" set:html={icon} />
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+</div>
+
+<style>
+    .service-card {
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 0;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        border-color: var(--accent-color);
+    }
+
+    .service-card:hover::after {
+        opacity: 0.05;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 1rem;
+        background: var(--surface-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--surface-border);
+        color: var(--accent-color);
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover .card-icon {
+        background: var(--accent-gradient);
+        color: white;
+        border-color: transparent;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .card-title {
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-desc {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        position: relative;
+        z-index: 1;
+        flex-grow: 1;
+    }
+</style>
