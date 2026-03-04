@@ -166,6 +166,58 @@ const searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="2
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq section-padding" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Pertanyaan yang Sering <span class="text-gradient">Ditanyakan</span></h2>
+                    <p>Temukan jawaban untuk pertanyaan umum seputar layanan pembuatan website kami.</p>
+                </div>
+                
+                <div class="faq-container reveal" style="transition-delay: 150ms;">
+                    <div class="faq-item glass-panel">
+                        <button class="faq-question">
+                            <span>Berapa lama proses pengerjaan website?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Waktu pengerjaan bergantung pada kompleksitas paket yang dipilih. Untuk paket Starter biasanya memakan waktu 3-5 hari kerja. Paket Professional sekitar 1-2 minggu, dan E-Commerce 2-3 minggu setelah semua materi/konten dari Anda terkumpul.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item glass-panel">
+                        <button class="faq-question">
+                            <span>Apakah saya perlu membayar biaya hosting dan domain tahun depan?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ya, biaya pembuatan sudah termasuk gratis hosting dan domain di tahun pertama (khusus paket tertentu). Untuk tahun kedua dan seterusnya, akan ada biaya perpanjangan tahunan agar website Anda tetap aktif dan dapat diakses publik.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item glass-panel">
+                        <button class="faq-question">
+                            <span>Apakah saya bisa memperbarui konten website sendiri nanti?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Tentu. Jika Anda memilih paket Professional atau E-Commerce, kami akan menyertakan Sistem Manajemen Konten (CMS) yang ramah pengguna. Anda akan mendapatkan panduan singkat untuk mengganti teks, gambar, atau menambah produk tanpa perlu mengerti bahasa pemrograman.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item glass-panel">
+                        <button class="faq-question">
+                            <span>Apakah desainnya bisa diubah jika saya kurang cocok?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Setiap paket kami menyertakan layanan revisi desain minor 1-2 kali setelah draf pertama diserahkan. Pengerjaan desain dilakukan dengan berkolaborasi langsung dengan preferensi visual Anda sejak awal agar hasilnya maksimal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA / Contact Section -->
         <section class="contact section-padding" id="contact">
             <div class="container">
@@ -458,6 +510,81 @@ const searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="2
         width: 100%;
     }
 
+    /* FAQ Section */
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .faq-item {
+        overflow: hidden;
+        border: 1px solid var(--surface-border);
+        transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .faq-item.active {
+        border-color: var(--accent-color);
+        box-shadow: 0 4px 25px rgba(37, 161, 150, 0.1);
+    }
+
+    .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 1.5rem 2rem;
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+        color: var(--accent-color);
+    }
+
+    .chevron {
+        color: var(--text-secondary);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 1rem;
+    }
+
+    .faq-item.active .chevron {
+        transform: rotate(180deg);
+        color: var(--accent-color);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        background: rgba(0,0,0,0.1);
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .faq-answer p {
+        padding: 0 2rem 1.5rem 2rem;
+        margin: 0;
+        font-size: 1rem;
+    }
+
     /* Contact Section */
     .contact-box {
         display: grid;
@@ -570,5 +697,26 @@ const searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="2
         }
     }
 </style>
+
+<script>
+    // FAQ Accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        
+        questionBtn?.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            faqItems.forEach(faq => faq.classList.remove('active'));
+            
+            // If it wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
 
 
