@@ -84,6 +84,12 @@ li {
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .text-gradient {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -102,6 +108,12 @@ li {
 
 .section-padding {
   padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
 }
 
 .btn {
